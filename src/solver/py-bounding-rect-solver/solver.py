@@ -95,10 +95,7 @@ def tour(anchor_rows: list[int], x_start: int, x_end: int) -> CutterTour:
     check_points = []
 
     for i, y in enumerate(anchor_rows):
-        if _is_even(i):
-            check_points.extend([(x_start, y), (x_end, y)])
-        else:
-            check_points.extend([(x_end, y), (x_start, y)])
+        check_points.extend([(x_start, y), (x_end, y)] if _is_even(i) else [(x_end, y), (x_start, y)])
 
     first_x, first_y = check_points[0]
     last_x, last_y = check_points[-1]
